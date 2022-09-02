@@ -15,7 +15,7 @@ const Main = () => {
 				:
 				<div>
 					<pre>
-						{JSON.stringify(items, null, 2)}
+						{JSON.stringify(items.results, null, 2)}
 					</pre>
 				</div>
 			}

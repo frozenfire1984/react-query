@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 
-export const useFetch = () => {
+export const useFetch = (test) => {
+	console.log(test)
 
 	const [isLoading, setIsLoading] = useState(false)
 	const [isError, setIsError] = useState(false)
@@ -12,7 +13,7 @@ export const useFetch = () => {
 			setIsError(false)
 			setIsLoading(true);
 			try {
-				const resp = await fetch("http://localhost:3001/countries/")
+				const resp = await fetch("http://localhost:3001/films")
 				const data = await resp.json()
 				setItems(data)
 			} catch (e) {

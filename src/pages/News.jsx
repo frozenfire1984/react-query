@@ -1,7 +1,7 @@
 import {useFetch} from "../hooks/useFetch";
 
 const News = () => {
-	const {items, isLoading, isError} = useFetch()
+	const {items, isLoading, isError} = useFetch('test')
 
 	return (
 		<div>

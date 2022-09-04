@@ -1,24 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {useQuery} from "react-query";
-import {useGetFilms} from "../hooks/useGetFilms";
 
-const FilmsCount = ({queryKey}) => {
-	const {
-		data: {results = []} = {},
-		isLoading,
-		isRefetching,
-	} = useGetFilms('films');
-	return (
-		<div>
-			{isLoading && 'loading...'}
-			{isRefetching && 'update...'}
-			<div>{!isLoading && <p>Films count: {results.length}</p>}</div>
-		</div>
-	)
-}
-
-const Films = ({queryKey}) => {
+const Films_init = ({queryKey}) => {
 	const {
 		data: {results: films = []} = {},
 		isError,
@@ -26,7 +10,27 @@ const Films = ({queryKey}) => {
 		isRefetching,
 		error,
 		...other
-	} = useGetFilms('films')
+	} = useQuery(queryKey, async () => {
+		/*await new Promise((resolve => {
+			setTimeout(resolve, 5000)
+		}))*/
+		
+		//throw new Error('error')
+		
+		//return fetch("http://swapi.dev/api/films").then(res => res.json())
+		return fetch("http://localhost:3001/films")
+			.then(res => res.json())
+			.catch((e) => {
+				throw new Error('Error!')
+			})
+	},
+		{
+			cacheTime: 5000,
+			//staleTime: 10000,
+			//refetchOnWindowFocus: false
+			//seErrorBoundary: (error) => error.response?.status >= 400
+		}
+	)
 	
 	console.log(other)
 	
@@ -37,12 +41,10 @@ const Films = ({queryKey}) => {
 			
 			{isError
 				? error.message
-				: films.map((item) => (
-					<div key={item.id} >{item.title}</div>
+				: films.map((item, index) => (
+					<div key={index} >{item.title}</div>
 					))
 			}
-			<hr/>
-			<FilmsCount queryKey={queryKey}/>
 		
 		</div>
 	)
@@ -82,4 +84,4 @@ const Films = ({queryKey}) => {
 }*/
 
 
-export default Films
+export default Films_init

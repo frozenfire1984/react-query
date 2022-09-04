@@ -21,7 +21,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="global">
         {/*<button onClick={() => setIsOpen(!isOpen)}>Toggle</button>
-        {isOpen ? <Films_useHook/> : null}*/}
+        {isOpen ? <Films/> : null}*/}
 
         <Films queryKey={'films'}/>
         

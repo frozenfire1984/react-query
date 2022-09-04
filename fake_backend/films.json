@@ -1,0 +1,43 @@
+
+{
+  "films": {
+    "results": [
+      {
+        "id": 1,
+        "title": "Terminator 5",
+        "desc": "Some desc",
+        "rating": 100
+      },
+      {
+        "id": 2,
+        "title": "Robocop",
+        "desc": "Some desc",
+        "rating": 200
+      },
+      {
+        "id": 3,
+        "title": "Transformers",
+        "desc": "Some desc",
+        "rating": 300
+      },
+      {
+        "id": 4,
+        "title": "Rambo first blood",
+        "desc": "Some desc",
+        "rating": 400
+      },
+      {
+        "id": 5,
+        "title": "Avatar",
+        "desc": "Some desc",
+        "rating": 400
+      },
+      {
+        "id": 6,
+        "title": "Avatar 2",
+        "desc": "Some desc",
+        "rating": 400
+      }
+    ]
+  }
+}

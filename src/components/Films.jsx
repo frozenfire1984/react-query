@@ -2,121 +2,58 @@ import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {useQuery} from "react-query";
 
-const useFetchFilms = () => {
-
-	//const [data, setData] = useState()
-	//let test
-
+const Films = ({queryKey}) => {
 	const {
-		//data: { results = []} = {}
-		//...all
-		//data: { results = []} = {},
-		//data,
-		//isLoading,
-		//isError,
-		//data,
+		data: {results: films = []} = {},
+		isError,
+		isLoading,
+		isRefetching,
+		error,
 		...other
-	} = useQuery(
-		'films',
-		() => {
-			 //fetch("http://localhost:3001/countries/")
-				return fetch("https://swapi.dev/api/films/")
-				.then(res => res.json())
-				/*.then(data => {
-					//console.log(data)
-				})*/
+	} = useQuery(queryKey, async () => {
+		/*await new Promise((resolve => {
+			setTimeout(resolve, 5000)
+		}))*/
+		
+		//throw new Error('error')
+		
+		//return fetch("http://swapi.dev/api/films").then(res => res.json())
+		return fetch("http://localhost:3001/films")
+			.then(res => res.json())
+			.catch((e) => {
+				throw new Error('Error!')
+			})
+	},
+		{
+			cacheTime: 5000,
+			//staleTime: 10000,
+			//refetchOnWindowFocus: false
+			//seErrorBoundary: (error) => error.response?.status >= 400
 		}
 	)
 	
-	//console.log(data)
-
-	return {other}
-
-
-
-	/*useQuery(
-		'films',
-		async () => {
-			return fetch("http://localhost:3001/countries/")
-			//return fetch("https://swapi.dev/api/films/")
-				.then(res => res.json())
-		}
-	)*/
-}
-
-const FilmsMount = () => {
-	const {
-		data: { results = []} = {},
-		isLoading,
-		isError,
-		error,
-		isFetching
-	} = useFetchFilms()
-
+	console.log(other)
+	
 	return (
 		<div>
-			{isLoading
-				? '...'
-				: isError
-					? error.message
-					: <p>Films: {results.length}</p>
-			}
-		</div>
-
-	)
-}
-
-const Films = () => {
-	const {
-		//other
-		//results
-			data: { results = []} = {},
-		//results,
-
-		//isLoading,
-		//isError,
-		//data,
-		//isSuccess,
-		//data,
-		//isError,
-		//error,
-		//isFetching
-	} = useFetchFilms()
-
-	//console.log(test)
-	//console.log("isError:" + isError)
-	//console.log("isLoading:" + isLoading)
-	//console.log("isSuccess:" + isSuccess)
-	console.log(results)
-	return (
-
-		<div>
-			{/*<FilmsMount />*/}
-			{/*{isLoading
-				? '...'
-				: isError
+			{isLoading && 'loading...'}
+			{isRefetching && 'update...'}
+			
+			{isError
 				? error.message
-				: results.map((item, index) => (
-				<div key={index}>{item.title}</div>
-			))}
-			<br/>
-			{isFetching ? 'Update...' : null}*/}
-
-			<pre>
-			{/*{JSON.stringify(results, null, 2)}*/}
-
-			</pre>
-
-
+				: films.map((item, index) => (
+					<div key={index} >{item.title}</div>
+					))
+			}
+		
 		</div>
 	)
 }
 
-/*const Films = () => {
+/*const Films_useHook = () => {
 	const [isLoading, setIsLoading] = useState(false)
 	const [isError, setIsError] = useState(false)
 	const [items, setItems] = useState([])
-
 
 	useEffect(() => {
 		(async function () {

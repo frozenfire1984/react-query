@@ -15,17 +15,16 @@ const queryClient = new QueryClient()
 
 
 function App() {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
   
   return (
     <QueryClientProvider client={queryClient}>
       <div className="global">
-        {/*<button onClick={() => setIsOpen(!isOpen)}>Toggle</button>*/}
-        {/*{isOpen ? <Films/> : null}*/}
+        {/*<button onClick={() => setIsOpen(!isOpen)}>Toggle</button>
+        {isOpen ? <Films_useHook/> : null}*/}
 
         <Films queryKey={'films'}/>
-
-
+        
         {/*<BrowserRouter>
           <Nav/>
           <Routes>

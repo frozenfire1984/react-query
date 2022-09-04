@@ -1,7 +1,7 @@
 import {useQuery} from "react-query";
 
-export const useGetFilms = (queryKey = "films") => {
-	const url = 'https://swapi.dev/api/films'
+export const useGetPlanets = (queryKey = "planets") => {
+	const url = 'https://swapi.dev/api/planets'
 	const url_local = 'http://localhost:3001/films'
 	
 	return useQuery(queryKey, async () => {

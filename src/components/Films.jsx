@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {Link} from 'react-router-dom'
-import {useQuery} from "react-query";
+
 import {useGetFilms} from "../hooks/useGetFilms";
+//import Planets from "./Planets";
+import {useGetFilm} from "../hooks/useGetFilm";
+import SearchFilm from "./SearchFilm";
 
 const FilmsCount = ({queryKey}) => {
 	const {
@@ -18,68 +20,46 @@ const FilmsCount = ({queryKey}) => {
 	)
 }
 
+
+
 const Films = ({queryKey}) => {
-	const {
+	/*const {
 		data: {results: films = []} = {},
 		isError,
 		isLoading,
 		isRefetching,
 		error,
 		...other
-	} = useGetFilms('films')
+	} = useGetFilms('films')*/
 	
-	console.log(other)
+	const [film, setFilm] = useState("")
+	
 	
 	return (
 		<div>
-			{isLoading && 'loading...'}
+			<form action="">
+				<input type="text" id={'film'} value={film} onChange={(e) => setFilm(e.target.value)}/>
+			</form>
+			<SearchFilm film={film}/>
+			
+			
+			{/*{isLoading && 'loading...'}
 			{isRefetching && 'update...'}
 			
 			{isError
 				? error.message
-				: films.map((item) => (
-					<div key={item.id} >{item.title}</div>
-					))
+				: films.map((item, index) => (
+					<div key={index}>{item.title}</div>
+				))
 			}
 			<hr/>
-			<FilmsCount queryKey={queryKey}/>
+			<FilmsCount queryKey={queryKey}/>*/}
 		
 		</div>
 	)
 }
 
-/*const Films = () => {
-	const [isLoading, setIsLoading] = useState(false)
-	const [isError, setIsError] = useState(false)
-	const [items, setItems] = useState([])
 
-	useEffect(() => {
-		(async function () {
-			setIsError(false)
-			setIsLoading(true);
-			try {
-				const resp = await fetch("http://localhost:3001/countries/")
-				let data = await resp.json()
-				data = data.results
-				setItems(data)
-			} catch (e) {
-				setIsError(true)
-			}
-			setIsLoading(false)
-		}())
-	},[])
-	return (
-		<div>
-			{isLoading
-				? '...'
-				:
-				items.map((item, index) => (
-				<div key={index}>{item.title}</div>
-				))
-			}
-		</div>
-	)
-}*/
 
 
 export default Films

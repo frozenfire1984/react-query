@@ -33,26 +33,32 @@ const Films = ({queryKey}) => {
 	} = useGetFilms('films')*/
 	
 	const [film, setFilm] = useState("")
+	//const [filmUrl, setFilmUrl] = useState('')
 	
 	
 	return (
 		<div>
 			<form action="">
-				<input type="text" id={'film'} value={film} onChange={(e) => setFilm(e.target.value)}/>
+				<input
+					type="text"
+					id={'film'}
+					value={film}
+					onChange={(e) => setFilm(e.target.value)}
+				/>
 			</form>
 			<SearchFilm film={film}/>
 			
 			
 			{/*{isLoading && 'loading...'}
-			{isRefetching && 'update...'}
+			{isRefetching && 'update...'}*/}
 			
-			{isError
+			{/*{isError
 				? error.message
 				: films.map((item, index) => (
 					<div key={index}>{item.title}</div>
 				))
-			}
-			<hr/>
+			}*/}
+			{/*<hr/>
 			<FilmsCount queryKey={queryKey}/>*/}
 		
 		</div>

@@ -1,0 +1,11 @@
+.paginator {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.todos {
+  & &__item {
+    margin-block: 1rem;
+  }
+}

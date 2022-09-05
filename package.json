@@ -7,6 +7,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "moment": "^2.29.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-query": "^3.39.2",
@@ -16,7 +17,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "json-server -w fake_backend/films.json -p 3001 --delay 1000",
+    "mock": "node fake_backend/faker.js",
+    "server": "json-server -w fake_backend/todos.json -p 3001 --delay 1000",
     "dev": "concurrently \"npm run start\" \"npm run server\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,7 +43,9 @@
     ]
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.5.0",
     "concurrently": "^7.3.0",
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "node-sass": "^7.0.1"
   }
 }

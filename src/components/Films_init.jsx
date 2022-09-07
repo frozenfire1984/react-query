@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {useQuery} from "react-query";
 
-const Films_init = ({queryKey}) => {
+const Films_init = () => {
 	const {
-		data: {results: films = []} = {},
+		data,
 		isError,
 		isLoading,
 		isRefetching,
+		isSuccess,
 		error,
 		...other
-	} = useQuery(queryKey, async () => {
+	} = useQuery("films", async () => {
 		/*await new Promise((resolve => {
 			setTimeout(resolve, 5000)
 		}))*/
@@ -18,32 +19,39 @@ const Films_init = ({queryKey}) => {
 		//throw new Error('error')
 		
 		//return fetch("http://swapi.dev/api/films").then(res => res.json())
-		return fetch("http://localhost:3001/films")
+		return fetch("http://localhost:3003/films")
 			.then(res => res.json())
 			.catch((e) => {
 				throw new Error('Error!')
 			})
 	},
 		{
-			cacheTime: 5000,
+			//retryOnMount: false,
+			//retryDelay: 3000,
+			//cacheTime: 5000,
 			//staleTime: 10000,
-			//refetchOnWindowFocus: false
-			//seErrorBoundary: (error) => error.response?.status >= 400
+			//refetchOnReconnect: ((query: Query) => boolean | "always"),
+			//refetchOnWindowFocus: false,
+			seErrorBoundary: (error) => error.response?.status >= 400
 		}
 	)
 	
-	console.log(other)
+	console.log(data)
 	
 	return (
 		<div>
 			{isLoading && 'loading...'}
 			{isRefetching && 'update...'}
 			
-			{isError
+			{/*{isError
 				? error.message
-				: films.map((item, index) => (
+				: data.map((item, index) => (
 					<div key={index} >{item.title}</div>
 					))
+			}*/}
+			
+			{isSuccess &&
+			<pre>{JSON.stringify(data, null, 2)}</pre>
 			}
 		
 		</div>

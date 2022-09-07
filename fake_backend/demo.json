@@ -1,12 +1,10 @@
-
 {
-  "countries": {
-    "results": [
+  "films":  [
       {
         "id": 1,
         "title": "Russia",
         "desc": "Some desc",
-        "pop": 5000000
+        "pop": 500000000
       },
       {
         "id": 2,
@@ -27,5 +25,5 @@
         "pop": 5000000
       }
     ]
-  }
+
 }

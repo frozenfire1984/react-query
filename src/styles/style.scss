@@ -4,8 +4,64 @@
   justify-content: center;
 }
 
+.status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  font-style: italic;
+}
+
 .todos {
+  margin: 0;
+  padding: 0;
+
   & &__item {
-    margin-block: 1rem;
+    padding-block: 1rem;
+    padding-inline: .5rem;
+    border-top: 1px hsl(0, 0%, 80%) solid;
+
+    &_ext {
+
+    }
+
+
   }
+
+  .btn_patch {
+    margin-left: auto;
+  }
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  & &__id {
+    display: inline-block;
+    width: 2rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &#{&}_checked {
+    background-color: rgba(255, 0, 0, .5);
+  }
+
+  &#{&}_disabled {
+    pointer-events: none;
+    opacity: .5;
+    filter: grayscale(100%);
+  }
+}
+
+.global-status {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3rem;
+  font-style: italic;
 }

@@ -5,7 +5,7 @@ export const useGetFilms = (queryKey = "films") => {
 	const url_local = 'http://localhost:3001/films'
 	
 	return useQuery(queryKey, async () => {
-		return fetch(url)
+		return fetch(url_local)
 			.then(res => res.json())
 			.catch((e) => {
 				throw new Error('Error!')

@@ -1,43 +1,46 @@
-
 {
-  "films": {
-    "results": [
-      {
-        "id": 1,
-        "title": "Terminator 5",
-        "desc": "Some desc",
-        "rating": 100
-      },
-      {
-        "id": 2,
-        "title": "Robocop",
-        "desc": "Some desc",
-        "rating": 200
-      },
-      {
-        "id": 3,
-        "title": "Transformers",
-        "desc": "Some desc",
-        "rating": 300
-      },
-      {
-        "id": 4,
-        "title": "Rambo first blood",
-        "desc": "Some desc",
-        "rating": 400
-      },
-      {
-        "id": 5,
-        "title": "Avatar",
-        "desc": "Some desc",
-        "rating": 400
-      },
-      {
-        "id": 6,
-        "title": "Avatar 2",
-        "desc": "Some desc",
-        "rating": 400
-      }
-    ]
-  }
+  "films": [
+    {
+      "id": 2,
+      "title": "Robocop 2 fghfgh gjghj fhfg",
+      "desc": "Some desc",
+      "checked": true,
+      "rating": 200
+    },
+    {
+      "id": 4,
+      "title": "Rambo first blood ghghj",
+      "desc": "Some desc",
+      "checked": false,
+      "rating": 400
+    },
+    {
+      "id": 5,
+      "title": "Avatar ghjg ghjg",
+      "desc": "Some desc",
+      "checked": false,
+      "rating": 400
+    },
+    {
+      "id": 1662537150093,
+      "title": "dfgdfgfgh",
+      "desc": "Some desc",
+      "checked": true,
+      "rating": 100
+    },
+    {
+      "id": 1662537156045,
+      "title": "dfgdfgdgdfg",
+      "desc": "Some desc",
+      "checked": true,
+      "rating": 100
+    },
+    {
+      "id": 1662546735350,
+      "title": "hjkhjk",
+      "desc": "Some desc",
+      "checked": true,
+      "rating": 100
+    }
+  ]
 }

@@ -5,10 +5,12 @@ import Main from "./pages/Main";
 import News from "./pages/News";
 import About from "./pages/About";
 import Nav from "./components/Nav";
-import Films from "./components/Films";
+import {FilmsMutation} from "./components/FilmsMutation";
+import Films_init from "./components/Films_init";
 import PageWithPagination from "./pages/PageWithPagination";
-import {ReactQueryDevtools} from 'react-query/devtools'
+import {ReactQueryDevtools, ReactQueryDevtoolsPanel} from 'react-query/devtools'
 import './styles/style.scss'
+import Films from "./components/Films";
 
 
 const queryClient = new QueryClient()
@@ -22,9 +24,11 @@ function App() {
         {/*<button onClick={() => setIsOpen(!isOpen)}>Toggle</button>
         {isOpen ? <Films/> : null}*/}
 
-        {/*<Films queryKey={'films'}/>*/}
+        <FilmsMutation queryKey={'films'}/>
+
+        {/*<Films_init />*/}
         
-        <BrowserRouter>
+        {/*<BrowserRouter>
           <Nav/>
           <Routes>
             <Route path={'/'} element={<Main/>}/>
@@ -32,7 +36,7 @@ function App() {
             <Route path={'/news'} element={<News/>}/>
             <Route path={'/about'} element={<About/>}/>
           </Routes>
-        </BrowserRouter>
+        </BrowserRouter>*/}
       </div>
       <ReactQueryDevtools />
     </QueryClientProvider>

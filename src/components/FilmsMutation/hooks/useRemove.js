@@ -8,11 +8,14 @@ export const useRemove = () => {
 			headers: {
 				'Content-Type': 'application/json'
 			}
-		}).then(res => res.json()).then(data => console.log(data)),
+		})
+			.then(res => res.json())
+			.then(data => data)
+			.catch((e) => console.log(e.message)),
 		{
-			onSuccess: () => {
+			/*onSuccess: () => {
 				queryClient.invalidateQueries('films')
-			}
+			}*/
 		}
 	)
 }

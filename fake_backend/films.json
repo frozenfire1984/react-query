@@ -1,45 +1,43 @@
 {
   "films": [
     {
-      "id": 2,
-      "title": "Robocop 2 fghfgh gjghj fhfg",
+      "id": 1,
+      "title": "test1 fghfgh",
       "desc": "Some desc",
-      "checked": true,
+      "checked": false,
+      "category": "18+",
       "rating": 200
     },
     {
-      "id": 4,
-      "title": "Rambo first blood ghghj",
+      "id": 3,
+      "title": "test3 gjgj. ghjghjg ghjghj ghjghj ghj ghjghj",
       "desc": "Some desc",
-      "checked": false,
-      "rating": 400
+      "checked": true,
+      "category": "18+",
+      "rating": 100
+    },
+    {
+      "id": 4,
+      "title": "test4 dfgdfg hj ghj ghj ghjgh jghj",
+      "desc": "Some desc",
+      "checked": true,
+      "category": "18+",
+      "rating": 100
     },
     {
       "id": 5,
-      "title": "Avatar ghjg ghjg",
+      "title": "test5 testf fghfgh ghjghj",
       "desc": "Some desc",
       "checked": false,
-      "rating": 400
-    },
-    {
-      "id": 1662537150093,
-      "title": "dfgdfgfgh",
-      "desc": "Some desc",
-      "checked": true,
+      "category": "18+",
       "rating": 100
     },
     {
-      "id": 1662537156045,
-      "title": "dfgdfgdgdfg",
+      "id": 6,
+      "title": "test6 gdfgdggh jg",
       "desc": "Some desc",
       "checked": true,
-      "rating": 100
-    },
-    {
-      "id": 1662546735350,
-      "title": "hjkhjk",
-      "desc": "Some desc",
-      "checked": true,
+      "category": "18+",
       "rating": 100
     }
   ]

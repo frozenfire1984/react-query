@@ -11,11 +11,14 @@ export const usePatchStatus = () => {
 			headers: {
 				'Content-Type': 'application/json'
 			}
-		}).then(res => res.json()).then(data => console.log(data)).catch((e) => console.log(e.message)),
+		})
+			.then(res => res.json())
+			.then(data => data)
+			.catch((e) => console.log(e.message)),
 		{
-			onSuccess: () => {
-				queryClient.invalidateQueries('films')
-			}
+			/*onSuccess: async () => {
+				await queryClient.invalidateQueries('films')
+			}*/
 		}
 	)
 }

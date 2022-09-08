@@ -21,7 +21,7 @@ const FilmsMutation = () => {
 		isLoading: isSending,
 	} = useAdd()
 	
-	const {
+	/*const {
 		mutate: mutateRemove,
 		isLoading: isDeleting
 	} = useRemove()
@@ -29,7 +29,7 @@ const FilmsMutation = () => {
 	const {
 		mutate: mutatePatch,
 		isLoading: isPatching
-	} = usePatchStatus()
+	} = usePatchStatus()*/
 	
 	const [text, setText] = useState("")
 	const todosUl = useRef(null)
@@ -44,13 +44,16 @@ const FilmsMutation = () => {
 	
 	const onSubmitHandler = (e) => {
 		e.preventDefault()
-		mutateAdd({
+		
+		const payload =  {
 			"id": Date.now(),
 			"title": text,
 			"desc": "Some desc",
 			"checked": false,
 			"rating": 100
-		}, {
+		}
+		
+		mutateAdd instanceof Function && mutateAdd(payload, {
 			onSuccess: () => {
 				setText("")
 				if (todosUl.current !== null) {
@@ -60,13 +63,13 @@ const FilmsMutation = () => {
 		})
 	}
 	
-	const onDeleteHandler = useCallback((id) => {
-		mutateRemove({id})
-	},[mutateRemove])
+	/*const onDeleteHandler = (id) => {
+			mutateRemove instanceof Function && mutateRemove({id})
+	}*/
 	
-	const onPatchHandler = useCallback((id, status) => {
-		mutatePatch({id, status})
-	},[mutatePatch])
+	/*const onPatchHandler = useCallback((id, status) => {
+		mutatePatch instanceof Function && mutatePatch({id, status})
+	},[mutatePatch])*/
 	
 	return (
 		<div>
@@ -90,17 +93,26 @@ const FilmsMutation = () => {
 			<div className={'status'}>
 				{isLoading && 'loading...'}
 				{isFetching && !isLoading && 'fetching...'}
-				{isDeleting && 'deleting (mutating)...'}
-				{isPatching && 'patching (mutating)...'}
+				{/*{isDeleting && 'deleting (mutating)...'}
+				{isPatching && 'patching (mutating)...'}*/}
 			</div>
 			
 			<ul className={'todos'} ref={todosUl}>
 				{isError
 					? error.message
 					: films?.map((item, index) => (
-						<Item key={index} {...item} index={index} onDeleteHandler={onDeleteHandler} onPatchHandler={onPatchHandler}/>
+						<Item
+							key={index}
+							{...item}
+							index={index}
+							//onPatchHandler={onPatchHandler}
+						/>
 					))
 				}
+				{/*<pre>
+					{JSON.stringify(films, null, 2)}
+				</pre>*/}
+				<Table></Table>
 			</ul>
 		</div>
 	)

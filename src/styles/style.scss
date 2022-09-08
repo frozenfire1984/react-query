@@ -19,13 +19,11 @@
   & &__item {
     padding-block: 1rem;
     padding-inline: .5rem;
-    border-top: 1px hsl(0, 0%, 80%) solid;
+    border-block: 1px hsl(0, 0%, 80%) solid;
 
-    &_ext {
-
+    & + .todos__item {
+      margin-top: -1px;
     }
-
-
   }
 
   .btn_patch {
@@ -45,16 +43,32 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-weight: bold;
+  }
+
+  & &__title {
+    display: flex;
+    align-items: center;
+    min-height: 1.5rem;
+    padding: 1px 2px;
+    border: 1px transparent solid;
+    font-size: 1rem;
+    font-family: "Helvetica Neue", Helvetica, Arial, serif;
+
+    &_editable {
+      border-color: hsl(0, 0%, 70%);
+    }
   }
 
   &#{&}_checked {
-    background-color: rgba(255, 0, 0, .5);
+    background-color: rgba(0, 255, 0, .2);
   }
 
   &#{&}_disabled {
     pointer-events: none;
+    user-select: none;
     opacity: .5;
-    filter: grayscale(100%);
+    filter: grayscale(50%);
   }
 }
 
